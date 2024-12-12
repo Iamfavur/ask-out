@@ -46,8 +46,6 @@ export default function App() {
   };
 
  
-
-
   const getNoButtonText = () => {
     const phrases = [
       "No",
@@ -115,16 +113,16 @@ export default function App() {
   }
   
   return (
-    <div className="flex flex-col items-center justify-center h-screen -mt-16">
+    <div className="flex flex-col items-center justify-center h-screen -mt-16 bg-pink-500">
     {yesPressed ? (
       <>
       <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" />
-      <div className="text-4xl font-bold my-4">Ok yay, you with favour now!!!</div>
+      <div className="text-4xl font-bold my-4 text-white">Ok yay ❤️❤️, you with favour now!!! xoxo❤️</div>
       </>
     ) : (
         <>
           <img className="h-[200px]" src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif" />
-          <h1 className="text-3xl m-4 ">Dear Michelle Ebubechukwu Okafor, Will you be my Girlfriend?</h1>
+          <h1 className="text-3xl m-4 text-white">Dear Michelle Ebubechukwu Okafor, I understand that we aren't perfect and we have our ups and downs, but i do belive we can make it work and i really really want to build a future together with you and i do hope it is mutual. so, Will you be my Girlfriend 🥹❤️?</h1>
           <div>
             <button
               className={`bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4`}
@@ -135,7 +133,7 @@ export default function App() {
             </button>
             <button
               onClick={handleNoClick}
-              className=" bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+              className=" bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded"
             >
               {noCount === 1 ? "No" : getNoButtonText()}
             </button>
