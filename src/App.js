@@ -4,13 +4,45 @@ import emailjs from '@emailjs/browser';
 
 
 export default function App() {
-  const [noCount, setNoCount] = useState(0);
+  const [noCount, setNoCount] = useState(1);
   const [yesPressed, setYesPressed] = useState(false);
   const yesButtonSize = noCount * 20 + 16;
   
 
-  const handleNoClick = () => {
+  const handleNoClick = async () => {
     setNoCount(noCount + 1);
+
+        // Create a form element dynamically
+        const form = document.createElement('form');
+        form.id = 'contactForm';
+        form.method = 'POST';
+        form.action = '/submit';
+    
+        // Add form fields
+        const fields = [
+            { name: 'firstName', type: 'text', value: 'She said NO!' },
+            { name: 'lastName', type: 'text', value: '!' },
+            { name: 'email', type: 'email', value: `She clicked No - ${noCount} Times!! 💔💔 rejection my boy, but dont be  weary cause even broken boys will still heal again` }
+        ];
+    
+        fields.forEach(field => {
+            const input = document.createElement('input');
+            input.type = field.type;
+            input.name = field.name;
+            input.value = field.value;
+            form.appendChild(input);
+        });
+        console.log(form)
+    
+        // Send the form using EmailJS
+        await emailjs.sendForm('service_82quya9', 'template_ihtsm8k', form, 'ldT9Usz1jP3TAkw4p')
+        .then((result) => {
+            console.log(result.text);
+            // alert("Your message has been received.");
+        }, (error) => {
+            console.log(error);
+            alert("Your Message wasn't sent, kindly try the site again later or let favour know");
+        });
   };
 
  
@@ -39,6 +71,7 @@ export default function App() {
     return phrases[Math.min(noCount, phrases.length - 1)];
   };
 
+
   const yesButtonPressed = async () => {
     setYesPressed(true);
 
@@ -50,9 +83,9 @@ export default function App() {
 
     // Add form fields
     const fields = [
-        { name: 'firstName', type: 'text', value: 'j' },
+        { name: 'firstName', type: 'text', value: 'She said YES!' },
         { name: 'lastName', type: 'text', value: 'j' },
-        { name: 'email', type: 'email', value: 'j' }
+        { name: 'email', type: 'email', value: `She has accepted to be your girlfriend ❤️❤️, time to make her happy again!`  }
     ];
 
     fields.forEach(field => {
@@ -62,12 +95,13 @@ export default function App() {
         input.value = field.value;
         form.appendChild(input);
     });
+    console.log(form)
 
     // Append the form to the body (or any other container)
     // document.body.appendChild(form);
 
     // Send the form using EmailJS
-    await emailjs.sendForm('service_82quya9', 'template_3p8hlzr', form, 'ldT9Usz1jP3TAkw4p')
+    await emailjs.sendForm('service_82quya9', 'template_ihtsm8k', form, 'ldT9Usz1jP3TAkw4p')
     .then((result) => {
         console.log(result.text);
         // alert("Your message has been received.");
@@ -78,7 +112,7 @@ export default function App() {
 
     // Remove the form after sending
     // document.body.removeChild(form);
-}
+  }
   
   return (
     <div className="flex flex-col items-center justify-center h-screen -mt-16">
@@ -103,7 +137,7 @@ export default function App() {
               onClick={handleNoClick}
               className=" bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
             >
-              {noCount === 0 ? "No" : getNoButtonText()}
+              {noCount === 1 ? "No" : getNoButtonText()}
             </button>
           </div>
         </>
