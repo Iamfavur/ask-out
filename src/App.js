@@ -124,10 +124,11 @@ export default function App() {
       <>
         <img className="h-[200px] mt-60" src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif" />
         <h1 className="text-3xl m-4 text-white">
-          Dear Michelle Ebubechukwu Okafor,<br/><hr/>
-          I know we aren't perfect, neither is our love, but I believe in waking up each day and consciously choosing someone—and I choose you. I truly want to build a future together and make it work no matter what.<br/><hr/>So, will you be my Girlfriend 🥹❤️?
+          Dear Michelle Ebubechukwu Okafor,<br/><hr className="custom-hr"/>
+          I know we aren't perfect, neither is our love, but I believe in waking up each day and consciously choosing someone—and I choose you. I truly want to build a future together and make it work no matter what.<br/><hr className="custom-hr"/>
+          So, will you be my Girlfriend 🥹❤️?
         </h1>
-        <div>
+        <div className=" mb-40">
           <button
             className={`bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4`}
             style={{ fontSize: yesButtonSize }}
