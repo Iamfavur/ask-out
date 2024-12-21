@@ -15,7 +15,7 @@
     overflow-y: auto;
     padding: 16px;
     box-sizing: border-box;
-    background-color: palevioletred;
+    background-color: rgb(252, 78, 136);
 }
 .custom-hr {
     margin: 16px 0; /* Adjust the top and bottom margin as needed */
